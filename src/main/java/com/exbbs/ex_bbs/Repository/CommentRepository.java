@@ -49,12 +49,4 @@ public class CommentRepository {
             template.update(insertSql, param);
         } 
     }
-
-    /**
-     * 投稿IDに一致するコメントを削除するメソッド
-     * @param articleId
-     */
-    public void deleteByArticleId(int articleId) {
-
-    }
 }
