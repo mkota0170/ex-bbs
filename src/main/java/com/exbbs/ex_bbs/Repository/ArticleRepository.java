@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.exbbs.ex_bbs.domain.Article;
 
@@ -41,21 +42,19 @@ public class ArticleRepository {
             String insertSql = "INSERT INTO articles(name,content) "
                     + " VALUES(:name,:content)";
             template.update(insertSql, param);
-        } else {
-            System.out.println("すでに作成済み。");
         }
-
     }
 
     /**
      * IDで指定された投稿とそのコメントを削除するメソッド
      * @param id
      */
+    @Transactional
     public void deleteById(int id) {
-        String CommentleDeleteSql = "DELETE FROM comments WHERE id=:id";
+        String CommentDeleteSql = "DELETE FROM comments WHERE id=:id";
         String ArticleDeleteSql = "DELETE FROM articles WHERE id=:id";
         SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
-        template.update(CommentleDeleteSql, param);
+        template.update(CommentDeleteSql, param);
         template.update(ArticleDeleteSql, param);
     }
 

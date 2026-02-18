@@ -47,10 +47,7 @@ public class CommentRepository {
             String insertSql = "INSERT INTO comments(name,content,article_id ) "
                     + " VALUES(:name,:content,:articleId)";
             template.update(insertSql, param);
-        } else {
-            System.out.println("すでに作成済み。");
-        }
-
+        } 
     }
 
     /**
