@@ -3,9 +3,13 @@ package com.exbbs.ex_bbs.domain;
 import java.util.List;
 
 public class Article {
+    //投稿ID
     private Integer id;
+    //名前
     private String name;
+    //記事内容
     private String content;
+    //コメントの格納用
     private List<Comment> commentList;
     
     public Integer getId() {

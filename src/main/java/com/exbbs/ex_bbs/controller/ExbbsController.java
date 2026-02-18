@@ -12,6 +12,7 @@ import com.exbbs.ex_bbs.Repository.CommentRepository;
 import com.exbbs.ex_bbs.domain.Article;
 import com.exbbs.ex_bbs.domain.Comment;
 import com.exbbs.ex_bbs.form.ArticleForm;
+import com.exbbs.ex_bbs.form.CommentForm;
 
 @Controller
 @RequestMapping("/exbbs")
@@ -45,6 +46,17 @@ public class ExbbsController {
         article.setContent(form.getContent());
 
         artRepository.insert(article);
+        return "redirect:/exbbs";
+    }
+    @RequestMapping("/comment")
+    public String postComment(CommentForm form) {
+
+        Comment comment = new Comment();
+        comment.setName(form.getName());
+        comment.setContent(form.getContent());
+        comment.setArticleId(form.getArticleId());
+
+        comRepository.insert(comment);
         return "redirect:/exbbs";
     }
 }

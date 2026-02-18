@@ -1,9 +1,13 @@
 package com.exbbs.ex_bbs.domain;
 
 public class Comment {
+    //コメントID
     private Integer id;
+    //コメント者
     private String name;
+    //コメント内容
     private String content;
+    //紐づける投稿ID
     private Integer articleId;
     
     public Integer getId() {

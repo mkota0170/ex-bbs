@@ -20,7 +20,7 @@
 		<br>
 		<textarea name="content" rows="4" cols="40"></textarea>
 		<br>
-		<button>投稿！</button>
+		<button>記事投稿！</button>
 	</form>
 	<hr>
 	<div th:each="user:${articleList}">
@@ -29,12 +29,25 @@
         投稿内容：<br>
 		<span th:text="${user.content}"></span>
         <br>
-        
+
         <div th:each="comment : ${user.commentList}"><br>
         コメント者名：<span th:text="${comment.name}"></span><br>
         コメント内容：<br>
         <span th:text="${comment.content}"></span>
         </div>
+        
+        <form th:action="@{/exbbs/comment}" method="post">
+        <!--ここで投稿のIDを値として渡しておくことで、formに入力値として入る。-->
+        <input type="hidden" name="articleId" th:value="${user.id}">
+		名前：<br>
+		<input type="text" name="name">
+		<br>
+		記事：
+		<br>
+		<textarea name="content" rows="4" cols="40"></textarea>
+		<br>
+		<button>コメント！</button>
+	    </form>
 	<hr>
 	</div>
 </body>

@@ -21,12 +21,19 @@ public class ArticleRepository {
 
     private static final RowMapper<Article> ARTICLE_ROW_MAPPER = new BeanPropertyRowMapper<>(Article.class);
 
+    /**
+     * 全投稿を取得するメソッド
+     * @return 全投稿の情報
+     */
     public List<Article> findAll() {
         String sql = "SELECT id,name,content FROM articles ORDER BY id DESC";
         List<Article> articleList = template.query(sql, ARTICLE_ROW_MAPPER);
         return articleList;
     }
 
+    /**
+     * 入力された情報で投稿を作成し、DB上に保存するメソッド
+     */
     public void insert(Article article) {
         SqlParameterSource param = new BeanPropertySqlParameterSource(article);
 
@@ -40,6 +47,10 @@ public class ArticleRepository {
 
     }
 
+    /**
+     * IDで指定された投稿とそのコメントを削除するメソッド
+     * @param id
+     */
     public void deleteById(int id) {
         String deleteSql = "DELETE FROM articles WHERE id=:id";
         SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);

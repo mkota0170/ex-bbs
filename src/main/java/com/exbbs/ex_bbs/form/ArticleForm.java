@@ -1,5 +1,8 @@
 package com.exbbs.ex_bbs.form;
 
+/**
+ * 投稿の入力値を受け取るためのフォーム
+ */
 public class ArticleForm {
     private String name;
     private String content;

@@ -1,16 +1,13 @@
 package com.exbbs.ex_bbs.form;
 
+/**
+ * コメントの入力値を受け取るためのフォーム
+ */
 public class CommentForm {
-    private String articleId;
+    private Integer articleId;
     private String name;
     private String content;
 
-    public String getArticleId() {
-        return articleId;
-    }
-    public void setArticleId(String articleId) {
-        this.articleId = articleId;
-    }
     public String getName() {
         return name;
     }
@@ -26,5 +23,11 @@ public class CommentForm {
     @Override
     public String toString() {
         return "CommentForm [articleId=" + articleId + ", name=" + name + ", content=" + content + "]";
+    }
+    public Integer getArticleId() {
+        return articleId;
+    }
+    public void setArticleId(Integer articleId) {
+        this.articleId = articleId;
     }
 }
