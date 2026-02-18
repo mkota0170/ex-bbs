@@ -24,11 +24,17 @@
 	</form>
 	<hr>
 	<div th:each="user:${articleList}">
+        
 		投稿者名：<span th:text="${user.name}"></span>
 		<br>
         投稿内容：<br>
 		<span th:text="${user.content}"></span>
         <br>
+
+        <form th:action="@{/exbbs/delete}" method="post">
+        <input type="hidden" name="id" th:value="${user.id}">
+        <button>削除</button>
+        </form>
 
         <div th:each="comment : ${user.commentList}"><br>
         コメント者名：<span th:text="${comment.name}"></span><br>

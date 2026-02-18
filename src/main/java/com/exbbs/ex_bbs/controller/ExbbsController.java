@@ -59,4 +59,9 @@ public class ExbbsController {
         comRepository.insert(comment);
         return "redirect:/exbbs";
     }
+    @RequestMapping("/delete")
+    public String deletePost(int id){
+        artRepository.deleteById(id);
+        return "redirect:/exbbs";
+    }
 }
