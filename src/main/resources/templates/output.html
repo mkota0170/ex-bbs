@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        div,span{
+            margin-bottom: 20px;
+        }
+
+    </style>
 </head>
 <body>
     <form th:action="@{/exbbs/post}" method="post">
@@ -22,6 +28,13 @@
 		<br>
         投稿内容：<br>
 		<span th:text="${user.content}"></span>
+        <br>
+        
+        <div th:each="comment : ${user.commentList}"><br>
+        コメント者名：<span th:text="${comment.name}"></span><br>
+        コメント内容：<br>
+        <span th:text="${comment.content}"></span>
+        </div>
 	<hr>
 	</div>
 </body>
