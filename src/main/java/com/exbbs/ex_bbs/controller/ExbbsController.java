@@ -87,7 +87,7 @@ public class ExbbsController {
      */
     @RequestMapping("/delete")
     public String deleteArticle(int id) {
-        artRepository.deleteByAId(id);
+        artRepository.deleteById(id);
         return "redirect:/exbbs";
     }
 }
