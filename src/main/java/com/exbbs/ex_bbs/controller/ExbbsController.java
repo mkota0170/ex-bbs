@@ -34,11 +34,6 @@ public class ExbbsController {
 
         List<Article> articleList = artRepository.findAll();
 
-        for (Article article : articleList) {
-            List<Comment> listComment = comRepository.findByArticleId(article.getId());
-            article.setCommentList(listComment);
-        }
-
         model.addAttribute("articleList", articleList);
 
         return "output";
