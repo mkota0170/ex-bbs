@@ -94,13 +94,13 @@ public class ArticleRepository {
     }
 
     /**
-     * IDで指定された投稿とそのコメントを削除するメソッド
+     * IDで指定された投稿を削除するメソッド
      * 
      * @param id
      */
     public void deleteById(int id) {
-        final String commentDeleteSql = "DELETE FROM comments WHERE article_id=:id";
+        final String articleDeleteSql = "DELETE FROM articles WHERE id=:id";
         SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
-        template.update(commentDeleteSql, param);
+        template.update(articleDeleteSql, param);
     }
 }

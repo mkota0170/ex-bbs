@@ -75,7 +75,7 @@ public class ExbbsController {
     }
 
     /**
-     * 選択された投稿と、その投稿についたコメントを削除するメソッド
+     * 選択された投稿とコメントを削除するメソッド
      * 
      * @param id
      * @return 入力画面に遷移

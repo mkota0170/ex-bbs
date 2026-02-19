@@ -52,8 +52,8 @@ public class CommentRepository {
      * @param id
      */
     public void deleteByArticleId(int id){
-        final String articleDeleteSql = "DELETE FROM articles WHERE id=:id";
+        final String commentDeleteSql = "DELETE FROM comments WHERE article_id=:id";
         SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
-        template.update(articleDeleteSql, param);
+        template.update(commentDeleteSql, param);
     }
 }
