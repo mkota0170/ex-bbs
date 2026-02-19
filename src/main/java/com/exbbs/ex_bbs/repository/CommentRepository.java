@@ -1,4 +1,4 @@
-package com.exbbs.ex_bbs.Repository;
+package com.exbbs.ex_bbs.repository;
 
 import java.util.List;
 

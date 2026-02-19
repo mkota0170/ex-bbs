@@ -8,12 +8,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.exbbs.ex_bbs.Repository.ArticleRepository;
-import com.exbbs.ex_bbs.Repository.CommentRepository;
 import com.exbbs.ex_bbs.domain.Article;
 import com.exbbs.ex_bbs.domain.Comment;
 import com.exbbs.ex_bbs.form.ArticleForm;
 import com.exbbs.ex_bbs.form.CommentForm;
+import com.exbbs.ex_bbs.repository.ArticleRepository;
+import com.exbbs.ex_bbs.repository.CommentRepository;
 
 @Controller
 @RequestMapping("/exbbs")
