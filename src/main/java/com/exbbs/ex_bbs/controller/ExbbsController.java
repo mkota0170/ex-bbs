@@ -7,21 +7,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.exbbs.ex_bbs.Repository.ArticleRepository;
+import com.exbbs.ex_bbs.Repository.CommentRepository;
 import com.exbbs.ex_bbs.domain.Article;
 import com.exbbs.ex_bbs.domain.Comment;
 import com.exbbs.ex_bbs.form.ArticleForm;
 import com.exbbs.ex_bbs.form.CommentForm;
-import com.exbbs.ex_bbs.repository.articleRepository;
-import com.exbbs.ex_bbs.repository.commentRepository;
 
 @Controller
 @RequestMapping("/exbbs")
 public class ExbbsController {
 
     @Autowired
-    private commentRepository comRepository;
+    private CommentRepository comRepository;
     @Autowired
-    private articleRepository artRepository;
+    private ArticleRepository artRepository;
 
     /**
      * 投稿と、その投稿に紐づくコメントを出力するメソッド

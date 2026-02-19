@@ -1,4 +1,4 @@
-package com.exbbs.ex_bbs.repository;
+package com.exbbs.ex_bbs.Repository;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.exbbs.ex_bbs.domain.Comment;
 
 @Repository
-public class commentRepository {
+public class CommentRepository {
 
     @Autowired
     private NamedParameterJdbcTemplate template;

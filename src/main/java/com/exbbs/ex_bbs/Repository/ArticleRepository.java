@@ -1,4 +1,4 @@
-package com.exbbs.ex_bbs.repository;
+package com.exbbs.ex_bbs.Repository;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -18,7 +18,7 @@ import com.exbbs.ex_bbs.domain.Article;
 import com.exbbs.ex_bbs.domain.Comment;
 
 @Repository
-public class articleRepository {
+public class ArticleRepository {
 
     @Autowired
     private NamedParameterJdbcTemplate template;
