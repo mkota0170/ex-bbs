@@ -12,7 +12,6 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.exbbs.ex_bbs.domain.Article;
 import com.exbbs.ex_bbs.domain.Comment;
@@ -99,7 +98,6 @@ public class ArticleRepository {
      * 
      * @param id
      */
-    @Transactional
     public void deleteById(int id) {
         final String commentDeleteSql = "DELETE FROM comments WHERE article_id=:id";
         SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
