@@ -23,12 +23,18 @@ public class ExbbsController {
     @Autowired
     private ArticleRepository artRepository;
 
+    /**
+     * 投稿と、その投稿に紐づくコメントを出力するメソッド
+     * 
+     * @param model
+     * @return 全投稿とコメント
+     */
     @RequestMapping("")
     public String index(Model model) {
 
         List<Article> articleList = artRepository.findAll();
-        
-        for(Article article : articleList){
+
+        for (Article article : articleList) {
             List<Comment> listComment = comRepository.findByArticleId(article.getId());
             article.setCommentList(listComment);
         }
@@ -38,8 +44,14 @@ public class ExbbsController {
         return "output";
     }
 
+    /**
+     * 入力した内容の投稿をDBに保存し、再度入力画面に遷移するメソッド
+     * 
+     * @param form
+     * @return 入力画面に遷移
+     */
     @RequestMapping("/post")
-    public String postArticles(ArticleForm form) {
+    public String insertArticles(ArticleForm form) {
 
         Article article = new Article();
         article.setName(form.getName());
@@ -48,8 +60,15 @@ public class ExbbsController {
         artRepository.insert(article);
         return "redirect:/exbbs";
     }
+
+    /**
+     * 特定の投稿に対してのコメントをDBに保存し、再度入力画面に遷移するメソッド
+     * 
+     * @param form
+     * @return 入力画面に遷移
+     */
     @RequestMapping("/comment")
-    public String postComment(CommentForm form) {
+    public String insertComment(CommentForm form) {
 
         Comment comment = new Comment();
         comment.setName(form.getName());
@@ -59,9 +78,16 @@ public class ExbbsController {
         comRepository.insert(comment);
         return "redirect:/exbbs";
     }
+
+    /**
+     * 選択された投稿と、その投稿についたコメントを削除するメソッド
+     * 
+     * @param id
+     * @return 入力画面に遷移
+     */
     @RequestMapping("/delete")
-    public String deletePost(int id){
-        artRepository.deleteById(id);
+    public String deleteArticle(int id) {
+        artRepository.deleteByAId(id);
         return "redirect:/exbbs";
     }
 }

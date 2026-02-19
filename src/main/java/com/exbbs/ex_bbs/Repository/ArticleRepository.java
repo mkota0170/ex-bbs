@@ -34,6 +34,7 @@ public class ArticleRepository {
 
     /**
      * 入力された情報で投稿を作成し、DB上に保存するメソッド
+     * @param article
      */
     public void insert(Article article) {
         SqlParameterSource param = new BeanPropertySqlParameterSource(article);
@@ -50,7 +51,7 @@ public class ArticleRepository {
      * @param id
      */
     @Transactional
-    public void deleteById(int id) {
+    public void deleteByAId(int id) {
         final String commentDeleteSql = "DELETE FROM comments WHERE article_id=:id";
         final String articleDeleteSql = "DELETE FROM articles WHERE id=:id";
         SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);

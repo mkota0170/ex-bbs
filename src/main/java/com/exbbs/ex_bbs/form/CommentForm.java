@@ -4,8 +4,11 @@ package com.exbbs.ex_bbs.form;
  * コメントの入力値を受け取るためのフォーム
  */
 public class CommentForm {
+    //投稿ID
     private Integer articleId;
+    //コメント者名
     private String name;
+    //コメント内容
     private String content;
 
     public String getName() {
