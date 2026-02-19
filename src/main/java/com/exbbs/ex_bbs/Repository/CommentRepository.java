@@ -51,9 +51,9 @@ public class CommentRepository {
      * 投稿に紐づいたコメントを削除するメソッド
      * @param id
      */
-    public void deleteByArticleId(int id){
-        final String commentDeleteSql = "DELETE FROM comments WHERE article_id=:id";
-        SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
+     public void deleteByArticleId(int articleId){
+        final String commentDeleteSql = "DELETE FROM comments WHERE article_id=:articleId";
+        SqlParameterSource param = new MapSqlParameterSource().addValue("articleId", articleId);
         template.update(commentDeleteSql, param);
     }
 }

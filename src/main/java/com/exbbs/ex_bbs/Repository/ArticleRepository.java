@@ -65,7 +65,7 @@ public class ArticleRepository {
      * @return 全投稿の情報
      */
     public List<Article> findAll() {
-        String sql = "SELECT" + //
+        String sql = "SELECT" + 
                 " a.id AS article_id," +
                 " a.name AS article_name," +
                 " a.content AS article_content," +
@@ -75,7 +75,7 @@ public class ArticleRepository {
                 " FROM articles a" +
                 " LEFT JOIN comments c" +
                 " ON a.id = c.article_id" +
-                " ORDER BY a.id DESC, c.id DESC";
+                " ORDER BY a.id DESC, c.id";
         List<Article> articleList = template.query(sql, ARTICLE_WITH_COMMENTS_EXTRACTOR);
         return articleList;
     }
