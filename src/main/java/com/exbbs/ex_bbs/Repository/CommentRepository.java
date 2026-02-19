@@ -23,27 +23,27 @@ public class CommentRepository {
 
     /**
      * 投稿に紐づいたコメントを取得するメソッド
+     * 
      * @param articleId
      * @return 投稿IDに紐づいた全コメント
      */
     public List<Comment> findByArticleId(int articleId) {
         String sql = "SELECT id, name,content, article_id FROM comments WHERE article_id=:articleId";
-        SqlParameterSource param = new MapSqlParameterSource().addValue("articleId",articleId);
-        List<Comment> commentList = template.query(sql, param,COMMENT_ROW_MAPPER);
+        SqlParameterSource param = new MapSqlParameterSource().addValue("articleId", articleId);
+        List<Comment> commentList = template.query(sql, param, COMMENT_ROW_MAPPER);
         return commentList;
     }
 
     /**
      * 投稿に対してコメントを作成し、DBに保存するメソッド
+     * 
      * @param comment
      */
     public void insert(Comment comment) {
-         SqlParameterSource param = new BeanPropertySqlParameterSource(comment);
+        SqlParameterSource param = new BeanPropertySqlParameterSource(comment);
 
-        if (comment.getId() == null) {
-            String insertSql = "INSERT INTO comments(name,content,article_id ) "
-                    + " VALUES(:name,:content,:articleId)";
-            template.update(insertSql, param);
-        } 
+        String insertSql = "INSERT INTO comments(name,content,article_id ) "
+                + " VALUES(:name,:content,:articleId)";
+        template.update(insertSql, param);
     }
 }
